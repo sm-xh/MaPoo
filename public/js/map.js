@@ -4,24 +4,16 @@ const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v10',
     center: [19.944544, 50.049683],
-    zoom: 12
+    zoom: 13
 });
 
-const places = {
-    features: [
+const places = [
         {
-            type: 'Feature',
-            geometry: {
-                type: 'Point',
-                coordinates: [-77.032, 38.913]
-            },
-            properties: {
+                coordinates: [19.944544, 50.049683],
                 title: 'Mapbox',
                 description: 'Washington, D.C.'
-            }
         }
-    ]
-};
+];
 
 
 // add markers to map
@@ -31,5 +23,14 @@ for (const feature of places) {
     el.className = 'marker';
 
     // make a marker for each feature and add to the map
-    new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
+    new mapboxgl.Marker(el)
+        .setLngLat(feature  .coordinates)
+        .setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+                .setHTML(
+                    `<h3>${feature.title}</h3><p>${feature.description}</p>`
+                )
+        )
+        .addTo(map);
 }
+
