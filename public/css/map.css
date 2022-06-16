@@ -3,10 +3,6 @@
     height: 100vh;
 }
 
-.blurContainer{
-    filter: blur(10px);
-}
-
 
 .marker {
     background-image: url("../img/toilet-pin.png");
