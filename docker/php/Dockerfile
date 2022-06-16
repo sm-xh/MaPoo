@@ -1,3 +1,5 @@
+FROM php:7.4.3-fpm-alpine3.11
+
 ENV RUN_DEPS \
     zlib \
     libzip \
@@ -28,6 +30,6 @@ RUN apk add --no-cache --virtual .build-deps $BUILD_DEPS \
 RUN apk add --no-cache --virtual .run-deps $RUN_DEPS
 
 # Copy the application code
-COPY . /app
+COPY ../docker/php /app
 
 VOLUME ["/app"]
