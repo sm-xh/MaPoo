@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__.'/../models/User.php';
 require_once 'Repository.php';
+require_once __DIR__.'/../models/User.php';
 
 class UserRepository extends Repository
 {
@@ -9,14 +9,15 @@ class UserRepository extends Repository
     public function getUser(string $email): ?User
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.users WHERE email = :email
+            SELECT * FROM users u LEFT JOIN users_details ud 
+            ON u.id_user = ud.id_user WHERE u.email LIKE :email
         ');
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if (!$user) {
+        if ($user == false) {
             return null;
         }
 
@@ -26,5 +27,44 @@ class UserRepository extends Repository
             $user['name'],
             $user['surname']
         );
+    }
+
+    public function addUser(User $user)
+    {
+//        $stmt = $this->database->connect()->prepare('
+//            INSERT INTO users_details (name, surname)
+//            VALUES (?, ?)
+//        ');
+
+//        $stmt->execute([
+//            $user->getName(),
+//            $user->getSurname(),
+//        ]);
+
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO users (email, password) 
+            VALUES (?, ?) 
+        '); // pass id_user_deatils when fixed
+
+        $stmt->execute([
+            $user->getEmail(),
+            $user->getPassword()
+//            $this->getUserDetailsId($user)
+        ]);
+    }
+
+    public function getUserDetailsId(User $user): int
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.users_details WHERE name = :name AND surname = :surname
+        ');
+        $name = $user->getName();
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $surname = $user->getSurname();
+        $stmt->bindParam(':surname', $surname, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $data['id'];
     }
 }

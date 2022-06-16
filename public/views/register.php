@@ -1,51 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="public/css/style.css" type="text/css" rel="stylesheet">
-
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
-
-    <link href="public/css/map.css" type="text/css" rel="stylesheet">
-    <script src="public/js/map.js" defer></script>
-
-    <title>MaPoo</title>
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
+    <title>REGISTER</title>
 </head>
-<body>
-<header>
-    <nav class="navbar">
-        <div class="mapoo-title"><a href="index">MapPoo</a></div>
 
-        <a href="#" class="toggle-button">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </a>
-        <div class="toilet-options">
-            <ul>
-                <li><a href="#">Search for toilets</a></li>
-                <li><a href="#">Add new toilet</a></li>
-            </ul>
-        </div>
-        <div class="user-options">
-            <ul>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
-<main>
-    <section>
-        <div class="blurContainer">
-            <div id='map'>
-                <div class="register-box"></div>
+<body>
+<div class="container">
+
+    <div class="login-container">
+        <form class="register" action="register" method="POST">
+            <div class="messages">
+                <?php
+                if(isset($messages)){
+                    foreach($messages as $message) {
+                        echo $message;
+                    }
+                }
+                ?>
             </div>
-        </div>
-    </section>
-</main>
-</html>
+            <input name="email" type="text" placeholder="email@email.com">
+            <input name="password" type="password" placeholder="password">
+            <input name="confirmedPassword" type="password" placeholder="confirm password">
+            <input name="name" type="text" placeholder="name">
+            <input name="surname" type="text" placeholder="surname">
+            <input name="phone" type="text" placeholder="phone">
+            <button type="submit">REGISTER</button>
+        </form>
+    </div>
+</div>
+</body>

@@ -6,25 +6,50 @@
 </head>
 
 <body>
-<div class="container">
-    <div class="logo">
-        <img src="public/img/logo.svg">
-    </div>
-    <div class="login-container">
-        <form class="login" action="login" method="POST">
-            <div class="messages">
-                <?php
-                if(isset($messages)){
-                    foreach($messages as $message) {
-                        echo $message;
-                    }
-                }
-                ?>
+<header>
+    <nav class="navbar">
+        <div class="mapoo-title"><a href="">MapPoo</a></div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="toilet-options">
+            <ul>
+                <li><a href="#">Search for toilets</a></li>
+                <li><a href="#">Add new toilet</a></li>
+            </ul>
+        </div>
+        <div class="user-options">
+            <ul>
+                <li><a href="login">Login</a></li>
+                <li><a href="register">Register</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <div id='map'>
+            <div class="login-container">
+                <form class="login" action="login" method="POST">
+                    <div class="messages">
+                        <?php
+                        if(isset($messages)){
+                            foreach($messages as $message) {
+                                echo $message;
+                            }
+                        }
+                        ?>
+                    </div>
+                    <input name="email" type="text" placeholder="email@email.com">
+                    <input name="password" type="password" placeholder="password">
+                    <button type="submit">LOGIN</button>
+                </form>
             </div>
-            <input name="email" type="text" placeholder="email@email.com">
-            <input name="password" type="password" placeholder="password">
-            <button type="submit">LOGIN</button>
-        </form>
-    </div>
-</div>
+        </div>
+    </section>
+</main>
 </body>
