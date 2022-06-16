@@ -3,6 +3,11 @@
     height: 100vh;
 }
 
+.blurContainer{
+    filter: blur(10px);
+}
+
+
 .marker {
     background-image: url("../img/toilet-pin.png");
     background-size: cover;
@@ -19,4 +24,19 @@
 .mapboxgl-popup-content {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
+}
+
+.search-box
+{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 622px;
+    height: 83px;
+    left: 116px;
+    top: 161px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 44px;
 }

@@ -12,4 +12,8 @@ class DefaultController extends AppController {
         $this->render('index');
     }
 
+    public function info() {
+        $this->render('info');
+    }
+
 }

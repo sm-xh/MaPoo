@@ -17,7 +17,7 @@
 <body>
 <header>
         <nav class="navbar">
-            <div class="mapoo-title">MapPoo</div>
+            <div class="mapoo-title"><a href="">MapPoo</a></div>
             <a href="#" class="toggle-button">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -31,8 +31,8 @@
             </div>
             <div class="user-options">
                 <ul>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
+                    <li><a href="login">Login</a></li>
+                    <li><a href="register">Register</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </div>
@@ -41,7 +41,6 @@
     <main>
         <section>
             <div id='map'>
-
             </div>
         </section>
     </main>
