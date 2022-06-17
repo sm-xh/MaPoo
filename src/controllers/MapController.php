@@ -17,6 +17,10 @@ class MapController extends AppController {
         $this->render('map');
     }
 
+    public function add() {
+        $this->render('add');
+    }
+
     public function places()
     {
         $places= $this->placeRepository->getPlaces();

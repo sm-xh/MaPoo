@@ -52,7 +52,7 @@ const geocoder = new MapboxGeocoder({
     // Initialize the geocoder
     accessToken: mapboxgl.accessToken, // Set the access token
     mapboxgl: mapboxgl, // Set the mapbox-gl instance
-    marker: false // Do not use the default marker style
+    marker: false, // Do not use the default marker style
 });
 
-map.addControl(geocoder);
+map.addControl(geocoder,"top-left" );

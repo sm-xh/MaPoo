@@ -17,8 +17,8 @@
         </a>
         <div class="toilet-options">
             <ul>
-                <li><a href="#">Search for toilets</a></li>
-                <li><a href="#">Add new toilet</a></li>
+                <li><a href="map">Search for toilets</a></li>
+                <li><a href="add">Add new toilet</a></li>
             </ul>
         </div>
         <div class="user-options">

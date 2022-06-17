@@ -13,5 +13,6 @@ Routing::get('register', 'SecurityController');
 
 Routing::get('map', 'MapController');
 Routing::get('places', 'MapController');
+Routing::get('add', 'MapController');
 
 Routing::run($path);

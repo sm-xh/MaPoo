@@ -14,4 +14,14 @@ class PlaceRepository extends Repository
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);;
     }
+
+    public function addPlaces(): array
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM pins;
+        ');
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);;
+    }
 }
