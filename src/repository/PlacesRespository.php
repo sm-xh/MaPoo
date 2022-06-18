@@ -15,7 +15,7 @@ class PlaceRepository extends Repository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);;
     }
 
-    public function addPlaces(): array
+    public function addPlace(): array
     {
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM pins;

@@ -2,7 +2,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic214LWgiLCJhIjoiY2wyYnIzb2hhMDcxczNnbnUwM2Jyb
 
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v10',
+    style: 'mapbox://styles/smx-h/cl2br8rza000d14mj8wj1wwn7',
     center: [19.944544, 50.049683],
     zoom: 13
 });
@@ -53,6 +53,7 @@ const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken, // Set the access token
     mapboxgl: mapboxgl, // Set the mapbox-gl instance
     marker: false, // Do not use the default marker style
+    container: 'search_here',
 });
 
-map.addControl(geocoder,"top-left" );
+map.addControl(geocoder,"top-left");

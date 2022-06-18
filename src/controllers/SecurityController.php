@@ -52,6 +52,13 @@ class SecurityController extends AppController {
         $password = $_POST['password'];
         $name = $_POST['name'];
 
+        $myarray = array( $_POST);
+        foreach ($myarray as $key => $value)
+        {
+            echo "<p>".$key."</p>";
+            echo "<p>".$value."</p>";
+            echo "<hr />";
+        }
 
         $user = new User($email, password_hash($password, PASSWORD_DEFAULT), $name);
 

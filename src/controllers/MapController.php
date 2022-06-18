@@ -31,4 +31,24 @@ class MapController extends AppController {
         echo json_encode($places);
     }
 
+    public function add_pin()
+    {
+        if (!$this->isPost()) {
+            return $this->render('add_place');
+        }
+
+ //       $email = $_POST['description'];
+
+
+        echo "<pre>";
+        echo print_r($_POST,true);
+        echo "</pre>";
+
+//        $user = new User($email, password_hash($password, PASSWORD_DEFAULT), $name);
+//
+//        $this->userRepository->addUser($user);
+//
+//        return $this->render('register', ['messages' => ['You\'ve been succesfully registrated!']]);
+    }
+
 }
