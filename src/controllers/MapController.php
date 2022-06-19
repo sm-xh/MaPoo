@@ -1,15 +1,18 @@
 <?php
 
 require_once 'AppController.php';
-require_once __DIR__.'/../repository/PlacesRespository.php';
+require_once __DIR__.'/../repository/PlacesRepository.php';
+require_once __DIR__ .'/../models/Pin.php';
 
 
 class MapController extends AppController {
 
+    private $placeRepository;
+
     public function __construct()
     {
         parent::__construct();
-        $this->placeRepository = new PlaceRepository();
+        $this->placeRepository = new PlacesRepository();
 
     }
 
@@ -23,7 +26,7 @@ class MapController extends AppController {
 
     public function places()
     {
-        $places= $this->placeRepository->getPlaces();
+        $places = $this->placeRepository->getPlaces();
 
         header('Content-type: application/json');
         http_response_code(200);
@@ -34,21 +37,27 @@ class MapController extends AppController {
     public function add_pin()
     {
         if (!$this->isPost()) {
-            return $this->render('add_place');
+            return $this->render('add');
         }
 
- //       $email = $_POST['description'];
+        $coordinates = $_POST['coordinates'];
+        $comment = $_POST['comment'];
+        $location = $_POST['location-from-search'];
 
+        $pin = new Pin($coordinates, $comment, $location);
 
-        echo "<pre>";
-        echo print_r($_POST,true);
-        echo "</pre>";
-
-//        $user = new User($email, password_hash($password, PASSWORD_DEFAULT), $name);
-//
-//        $this->userRepository->addUser($user);
-//
-//        return $this->render('register', ['messages' => ['You\'ve been succesfully registrated!']]);
+        $this->placeRepository->addPin($pin);
     }
 
+    function getAddress($latitude, $longitude)
+    {
+        //google map api url
+        $url = "http://maps.google.com/maps/api/geocode/json?latlng=$latitude,$longitude";
+
+        // send http request
+        $geocode = file_get_contents($url);
+        $json = json_decode($geocode);
+        $address = $json->results[0]->formatted_address;
+        return $address;
+    }
 }

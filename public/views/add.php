@@ -59,6 +59,7 @@
             <div class="add-container">
                 <div class="container-header">Adding new toilet pin</div>
                 <form class="add_pin" action="add_pin" method="POST">
+                    <input name="coordinates" id="hidden-coordinates" type="text" hidden>
                     <p>Comment</p><hr>
                     <input name="comment" type="text" placeholder="Enter the e.g. tips">
                     <p>Address Information</p><hr>
@@ -106,7 +107,7 @@
 
                     </table>
 
-
+                    <button type="submit" class="submit-add">CONFIRM</button>
 
                 </form>
             </div>

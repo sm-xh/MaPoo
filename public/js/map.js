@@ -48,12 +48,21 @@ function placeMarkers(places) {
     }
 }
 
+
 const geocoder = new MapboxGeocoder({
     // Initialize the geocoder
     accessToken: mapboxgl.accessToken, // Set the access token
     mapboxgl: mapboxgl, // Set the mapbox-gl instance
-    marker: false, // Do not use the default marker style
+    marker: {
+
+    },
     container: 'search_here',
 });
+
+geocoder.on('result', function(e) {
+    document.getElementById('hidden-coordinates').value = e.result.center;
+    console.log(e.result.center)
+    address = geocoder.get
+})
 
 map.addControl(geocoder,"top-left");

@@ -78,6 +78,8 @@
 
 }
 
+
+
 .container-header{
     margin-top: 4vh;
     font-style: normal;
@@ -136,6 +138,12 @@ input .type_address{
     -webkit-transition: 0.5s;
 }
 
+#hidden-coordinates{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
 .add-container form input:not(:first-child) {
     margin-top:2vh;
 }
@@ -173,7 +181,8 @@ input .type_address{
     background: radial-gradient(306.25% 12898.73% at -105.42% 48.49%, #CDCDCD 0%, #FFFFFF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: white;
-    background: #398AB9;
+    background: radial-gradient(100% 100% at 50% -1.35%, #6bb7e0 0%, #3d9edc 100%);
+
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 32px;
 }
@@ -181,12 +190,12 @@ input .type_address{
 /* sliders */
 
 .sliders-table{
-    width:90%;
+    width:100%;
     heght:100%;
 }
 
 .sliders-table tr{
-    width:100%;
+    width:80%;
 }
 
 .sliders-table td{
@@ -198,6 +207,7 @@ input .type_address{
     display: inline-block;
     width: 60px;
     height: 34px;
+
 }
 
 .sliders-table .switch input {
@@ -213,9 +223,10 @@ input .type_address{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
+    background: radial-gradient(100% 100% at 50% -1.35%, #6bb7e0 0%, #3d9edc 100%);
+
 }
 
 .sliders-table .slider:before {
@@ -228,6 +239,7 @@ input .type_address{
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
+
 }
 
 .sliders-table input:checked + .slider {
@@ -244,15 +256,6 @@ input .type_address{
     transform: translateX(26px);
 }
 
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
 
 /* Rounded sliders */
 .slider.round {
@@ -264,7 +267,12 @@ input .type_address{
 }
 
 .switch .toggle-label {
-    float: right;
+    position: relative;
+    font-size: 1.4em;
+    width:10vh;
+    padding-left:8vh;
+    display: inline-block;
+    top:1em;
     margin-left: 5px;
     top: 2px;
 }
