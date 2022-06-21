@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="public/css/style.css" type="text/css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <script src='public/js/mapbox-gl.js'></script>
     <link href='public/css/mapbox-gl.css' rel='stylesheet' />
@@ -19,6 +20,8 @@
     <link href="public/css/adding-box.css" type="text/css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <link href="public/css/popup.css" type="text/css" rel="stylesheet">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
         var elements = $("body").find("[aria-controls='Search']");
@@ -30,32 +33,41 @@
 </head>
 <body>
 <header>
-    <nav class="navbar">
-        <div class="mapoo-title"><a href="index">MapPoo</a></div>
-        <a href="#" class="toggle-button">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </a>
-        <div class="toilet-options">
-            <ul>
-                <li><a href="map">Search for toilets</a></li>
-                <li><a href="add">Add new toilet</a></li>
-            </ul>
-        </div>
-        <div class="user-options">
-            <ul>
-                <li><a href="login">Login</a></li>
-                <li><a href="register">Register</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </div>
-    </nav>
-
+    <?php
+    include "public/common/navbar.php";
+    ?>
 </header>
 <main>
     <section>
         <div id='map'>
+                    <?php
+                    if(isset($messages)){
+                        echo "<div class='alert-box show'>";
+                        echo "<span class='fas fa-exclamation-circle'></span>";
+                        echo "<span class='msg' id='message'>";
+                        foreach($messages as $message) {
+                            echo $message;
+                        }
+                        echo "</span>";
+                        echo "<div class='close-btn'>";
+                        echo "<span class='fas fa-times''></span>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                    if(isset($error)){
+                        echo "<div class='alert-box show'>";
+                        echo "<span class='fas fa-exclamation-circle'></span>";
+                        echo "<span class='msg' id='message'>";
+                        foreach($messages as $message) {
+                            echo $message;
+                        }
+                        echo "</span>";
+                        echo "<div class='close-btn'>";
+                        echo "<span class='fas fa-times''></span>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                    ?>
             <div class="add-container">
                 <div class="container-header">Adding new toilet pin</div>
                 <form class="add_pin" action="add_pin" method="POST">
@@ -107,11 +119,21 @@
 
                     </table>
 
-                    <button type="submit" class="submit-add">CONFIRM</button>
+                    <button type="submit" class="submit-add">Confirm</button>
 
                 </form>
             </div>
         </div>
     </section>
 </main>
+
+
+<script>
+
+    $('.close-btn').click(function(){
+        $('.alert-box').removeClass("show");
+        $('.alert-box').addClass("hide");
+    });
+</script>
+
 </html>

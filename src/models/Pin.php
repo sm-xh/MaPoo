@@ -2,9 +2,9 @@
 
 class Pin
 {
-    private $comment;
-    private $coordinates;
-    private $address;
+    private string $comment;
+    private string $coordinates;
+    private string $address;
 
 
     public function __construct(
@@ -12,24 +12,34 @@ class Pin
         string $coordinates,
         string $address
     ) {
-        $this->email = $comment;
-        $this->password = $coordinates;
-        $this->name = $address;
+        $this->comment = $comment;
+        $this->coordinates = $coordinates;
+        $this->address = $address;
     }
 
-    public function getEmail(): string
+    /**
+     * @return string
+     */
+    public function getComment(): string
     {
-        return $this->email;
+        return $this->comment;
     }
 
-    public function getName(): string
+    /**
+     * @return string
+     */
+    public function getCoordinates(): string
     {
-        return $this->name;
+        return $this->coordinates;
     }
 
-    public function getPassword(): string
+    /**
+     * @return string
+     */
+    public function getAddress(): string
     {
-        return $this->password;
+        return $this->address;
     }
+
 
 }

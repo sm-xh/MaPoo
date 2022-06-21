@@ -16,7 +16,7 @@
 
 <main>
     <section>
-        <div class="blurContainer">        </div>
+        <div class="blurContainer"></div>
 
         <div class="login-container">
             <div class="messages">
@@ -36,7 +36,7 @@
                 <input name="email" type="text" placeholder="email@email.com">
                 <p>password</p>
                 <input name="password" type="password" placeholder="password">
-                <button type="submit">REGISTER</button>
+                <button type="submit">Register</button>
             </form>
         </div>
     </section>

@@ -18,6 +18,8 @@
         <div class="blurContainer">        </div>
 
         <div class="login-container">
+            <p>You don't have an account? <a href="register">Register now!</a></p>
+
             <div class="messages">
                 <?php
                 if(isset($messages)){
@@ -34,9 +36,10 @@
                     <input name="email" type="text" placeholder="email@email.com">
                     <p>login</p>
                     <input name="password" type="password" placeholder="password">
-                    <button type="submit">LOGIN</button>
+                    <button type="submit">Login</button>
                 </form>
-            </div>
+
+        </div>
     </section>
 </main>
 </body>
