@@ -53,8 +53,11 @@ class MapController extends AppController {
             ));
 
         $pin = new Pin($comment ,$coordinates_arr, $address_array, $details_arr);
+        $user = json_decode($_COOKIE['user'], true);
+        $user =  $user['email'];
+
         try{
-            $this->placeRepository->addPin($pin);
+            $this->placeRepository->addPin($pin, $user);
             return $this->render('add_pin', ['messages' => ['New pin added!']]);
         }
         catch (PDOException $e){

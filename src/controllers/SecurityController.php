@@ -3,6 +3,8 @@
 require_once 'AppController.php';
 require_once __DIR__ .'/../models/User.php';
 require_once __DIR__.'/../repository/UserRepository.php';
+require_once __DIR__.'/../repository/CookiesRepository.php';
+require_once __DIR__.'/../repository/PermissionRepository.php';
 
 class SecurityController extends AppController {
 
@@ -12,11 +14,13 @@ class SecurityController extends AppController {
     {
         parent::__construct();
         $this->userRepository = new UserRepository();
+        $this->cookieRepository = new CookiesRepository();
     }
 
     public function login()
     {
         $userRepository = new UserRepository();
+        $cookieRepository = new CookiesRepository();
 
         if (!$this->isPost()) {
             return $this->render('login');
@@ -34,11 +38,14 @@ class SecurityController extends AppController {
             return $this->render('login', ['messages' => ['User with this email not exist!']]);
         }
         if (!password_verify($_POST['password'], $user->getPassword())) {
-            return $this->render('login', ['messages' => ['Wrong password!']]);
+            return $this->render('login', ['messages' => ['Wrong username or password!']]);
         }
 
+        $cookieRepository->setCookie($user->getEmail());
+
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/index");
+        return $this->render('map', ['messages' => ['You\'ve been succesfully registrated!']]);
+
     }
 
 
@@ -59,7 +66,15 @@ class SecurityController extends AppController {
         return $this->render('register', ['messages' => ['You\'ve been succesfully registrated!']]);
     }
 
-    public function validate(){
+    public function logout(){
+        //delete cookie from db
+        $cookieRepository = new CookiesRepository();
+        $cookieRepository->deleteCookieFromDatabase();
+        //delete cookie from browser storage
+        unset($_COOKIE['user']);
+        setcookie('user', null, -1, '/');
 
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/");
     }
 }

@@ -1,16 +1,20 @@
+<?php
+require_once __DIR__."/../../src/controllers/SiteContentController.php";
+?>
+
 <!DOCTYPE html>
 
 <head>
     <?php include __DIR__."/../common/head.php"?>
 
     <link href="public/css/login.css" type="text/css" rel="stylesheet">
-    <title>LOGIN PAGE</title>
+    <title>Login page</title>
 </head>
 
 <body>
 <header>
     <?php
-    include "public/common/navbar.php";
+    SiteContentController::NavbarSelector();
     ?>
 </header>
 

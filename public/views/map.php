@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__."/../../src/controllers/SiteContentController.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +14,7 @@
 <body>
 <header>
     <?php
-    include "public/common/navbar.php";
+    SiteContentController::NavbarSelector();
     ?>
 </header>
 <main>

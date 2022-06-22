@@ -10,6 +10,7 @@ Routing::get('info', 'DefaultController');
 
 Routing::get('login', 'SecurityController');
 Routing::get('register', 'SecurityController');
+Routing::get('logout', 'SecurityController');
 
 Routing::get('map', 'MapController');
 Routing::get('places', 'MapController');

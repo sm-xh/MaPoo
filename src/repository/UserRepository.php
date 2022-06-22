@@ -24,15 +24,12 @@ class UserRepository extends Repository
         return new User(
             $user['email'],
             $user['password'],
-            $user['name'],
-            $user['surname']
+            $user['name']
         );
     }
 
     public function addUser(User $user)
     {
-
-
         $stmt = $this->database->connect()->prepare('
             INSERT INTO users (email, password) 
             VALUES (?, ?) 
@@ -57,5 +54,16 @@ class UserRepository extends Repository
 
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         return $data['id'];
+    }
+
+    public function getUserId($email): int{
+        $stmt = $this->database->connect()->prepare('
+            SELECT id_user FROM users WHERE users.email LIKE :email;
+        ');
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $data['id_user'];
     }
 }

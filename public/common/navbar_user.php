@@ -7,15 +7,18 @@
     </a>
     <div class="toilet-options">
         <ul>
-            <li><a href="map">Search for toilets</a></li>
-            <li><a href="add_pin">Add new toilet</a></li>
+            <li id="search-toilet"><a href="map">Search for toilets</a></li>
+            <li id="add-toilet"><a href="add_pin">Add new toilet</a></li>
         </ul>
     </div>
     <div class="user-options">
         <ul>
-            <li><a href="login" >Login</a></li>
-            <li><a href="register">Register</a></li>
-            <li><a href="#">About</a></li>
+            <li>Logged as:
+                <?php
+                $cookie = json_decode($_COOKIE['user'], true);
+                echo $cookie['email'];
+                ?></li>
+            <li><a href="logout">Logout</a></li>
         </ul>
     </div>
 </nav>

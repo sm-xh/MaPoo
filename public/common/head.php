@@ -13,3 +13,4 @@
 <script src='public/js/mapbox-gl-geocoder.min.js'></script>
 <script src="public/js/map.js" defer></script>
 <script src="public/js/map-custom-search.js" defer></script>
+<script src="public/js/scripts-mapoo.js" defer></script>

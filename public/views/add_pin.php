@@ -1,3 +1,14 @@
+<?php
+require_once __DIR__."/../../src/controllers/SiteContentController.php";
+
+if(!isset($_COOKIE['user'])){
+    $url = "http://$_SERVER[HTTP_HOST]";
+    header("Location: ${url}/index");
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +26,7 @@
 <body>
 <header>
     <?php
-    include "public/common/navbar.php";
+        SiteContentController::NavbarSelector();
     ?>
 </header>
 <main>

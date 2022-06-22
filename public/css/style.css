@@ -66,6 +66,16 @@ main {
 
 }
 
+.active{
+    border-bottom: 5px solid gray;
+}
+
+.navbar li:hover a{
+    text-decoration: underline;
+    color: #b0eaff;
+    transition: cubic-bezier(.77,0,.18,1) 0.1s;
+}
+
 .toilet-options li, .user-options li{
     font-size: 1.5rem;
     margin-right: 3rem;
