@@ -1,31 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="public/css/style.css" type="text/css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-    <script src='public/js/mapbox-gl.js'></script>
-    <link href='public/css/mapbox-gl.css' rel='stylesheet' />
-
-    <link href="public/css/map.css" type="text/css" rel="stylesheet">
-    <script src="public/js/map.js" defer></script>
-    <script src="public/js/map-custom-search.js" defer></script>
-
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <script src='public/js/mapbox-gl-geocoder.min.js'></script>
+    <?php include __DIR__."/../common/head.php"?>
 
     <link href="public/css/adding-box.css" type="text/css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <link href="public/css/popup.css" type="text/css" rel="stylesheet">
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
         var elements = $("body").find("[aria-controls='Search']");
-        console.log(elements);
         $(elements).attr('name', 'location-from-search');
     </script>
 
@@ -84,15 +65,14 @@
                         <tr>
                             <td>
                                 <label class="switch">
-                                    <input type="checkbox" checked>
+                                    <input type="checkbox" name="free" checked>
                                     <span class="slider round"></span>
-                                    <span class="toggle-label">Unisex</span>
-
+                                    <span class="toggle-label"><b>Free</b></span>
                                 </label>
                             </td>
                             <td>
                                 <label class="switch">
-                                    <input type="checkbox" checked>
+                                    <input type="checkbox" name="disabled" >
                                     <span class="slider round"></span>
                                     <span class="toggle-label">Disabled</span>
                                 </label>
@@ -100,16 +80,17 @@
 
                         </tr>
                         <tr>
+
                             <td>
                                 <label class="switch">
-                                    <input type="checkbox" checked>
+                                    <input type="checkbox" name="unisex">
                                     <span class="slider round"></span>
-                                    <span class="toggle-label"><b>Free</b></span>
+                                    <span class="toggle-label">Unisex</span>
                                 </label>
                             </td>
                             <td>
                                 <label class="switch">
-                                    <input type="checkbox" checked>
+                                    <input type="checkbox" name="baby_change">
                                     <span class="slider round"></span>
                                     <span class="toggle-label">Baby change</span>
                                 </label>

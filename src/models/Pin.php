@@ -3,18 +3,21 @@
 class Pin
 {
     private string $comment;
-    private string $coordinates;
-    private string $address;
+    private array $coordinates;
+    private array $address;
+    private string $details;
 
 
     public function __construct(
         string $comment,
-        string $coordinates,
-        string $address
+        array $coordinates,
+        array $address,
+        string $details
     ) {
         $this->comment = $comment;
         $this->coordinates = $coordinates;
         $this->address = $address;
+        $this->details = $details;
     }
 
     /**
@@ -26,20 +29,36 @@ class Pin
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getCoordinates(): string
+    public function getDetails(): string
+    {
+        return $this->details;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCoordinates(): array
     {
         return $this->coordinates;
     }
 
+
+    public function formatCoordinatesToJSON(): string
+    {
+        $json_data = array("point"=>$this->coordinates);
+        return json_encode($json_data);
+    }
+
+
+
     /**
-     * @return string
+     * @return array
      */
-    public function getAddress(): string
+    public function getAddress(): array
     {
         return $this->address;
     }
-
 
 }

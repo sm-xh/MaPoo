@@ -9,9 +9,7 @@ const map = new mapboxgl.Map({
 
 const places = [
         {
-                coordinates: [19.944544, 50.049683],
-                title: 'Mapbox',
-                description: 'Washington, D.C.'
+
         }
 ];
 
@@ -24,7 +22,6 @@ fetch("/places", {
     places.map(place => {
         place.coordinates = JSON.parse(place.coordinates).point
     });
-    console.log(places)
     placeMarkers(places);
 });
 
@@ -34,6 +31,23 @@ function placeMarkers(places) {
         // create a HTML element for each feature
         const el = document.createElement('div');
         el.className = 'marker';
+        feature.details = JSON.parse(feature.details);
+        var tick = "<i class=\"fa fa-check\" aria-hidden=\"true\"></i>";
+        var cross = "<i class=\"fa fa-xmark\"></i>\n";
+        var info_box = "<ul>";
+
+        for (var key in feature.details) {
+            if (feature.details.hasOwnProperty(key)) {
+                if(feature.details[key]=="on"){
+                    info_box += "<li>   " +  tick + key + "</li>";
+                }
+                if(feature.details[key]=="off"){
+                    info_box += "<li>   " + cross + key + "</li>";
+                }
+            }
+        }
+
+        info_box += "</ul>";
 
         // make a marker for each feature and add to the map
         new mapboxgl.Marker(el)
@@ -41,7 +55,11 @@ function placeMarkers(places) {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }) // add popups
                     .setHTML(
-                        `<h3>${feature.title}</h3><p>${feature.description}</p>`
+                        `<h3>${feature.description}</h3>
+                            <p>${feature.street} ${feature.house_number} ${feature.city}</p>
+                           <p>
+                             ${info_box}
+                            </p>`
                     )
             )
             .addTo(map);
@@ -61,8 +79,6 @@ const geocoder = new MapboxGeocoder({
 
 geocoder.on('result', function(e) {
     document.getElementById('hidden-coordinates').value = e.result.center;
-    console.log(e.result.center)
-    address = geocoder.get
 })
 
 map.addControl(geocoder,"top-left");

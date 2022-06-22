@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <?php include __DIR__."/../common/head.php"?>
+
     <link href="public/css/login.css" type="text/css" rel="stylesheet">
     <link href="public/css/register.css" type="text/css" rel="stylesheet">
-    <title>LOGIN PAGE</title>
+
+    <title>Login Page</title>
 </head>
 
 <body>

@@ -58,4 +58,8 @@ class SecurityController extends AppController {
 
         return $this->render('register', ['messages' => ['You\'ve been succesfully registrated!']]);
     }
+
+    public function validate(){
+
+    }
 }

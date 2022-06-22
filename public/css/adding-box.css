@@ -61,7 +61,6 @@
     display: none;
 }
 
-
 .add-container{
     position: absolute;
     z-index: 4;
@@ -77,8 +76,6 @@
     border-radius: 16px;
 
 }
-
-
 
 .container-header{
     margin-top: 4vh;
@@ -207,7 +204,7 @@ input .type_address{
     display: inline-block;
     width: 60px;
     height: 34px;
-
+    background-color: white;
 }
 
 .sliders-table .switch input {
@@ -215,6 +212,7 @@ input .type_address{
     width: 0;
     height: 0;
 }
+
 
 .sliders-table .slider {
     position: absolute;
@@ -225,7 +223,7 @@ input .type_address{
     bottom: 0;
     -webkit-transition: .4s;
     transition: .4s;
-    background: radial-gradient(100% 100% at 50% -1.35%, #6bb7e0 0%, #3d9edc 100%);
+    background: #7e7e7e;
 
 }
 
@@ -243,7 +241,7 @@ input .type_address{
 }
 
 .sliders-table input:checked + .slider {
-    background-color: #2196F3;
+    background: #3d9edc;
 }
 
 .sliders-table input:focus + .slider {
@@ -275,4 +273,11 @@ input .type_address{
     top:1em;
     margin-left: 5px;
     top: 2px;
+}
+
+.toggle-checkbox:checked + .toggle-switch {
+    background: #56c080;
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+    left: 30px;
 }

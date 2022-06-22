@@ -10,7 +10,7 @@ class PlacesRepository extends Repository
     public function getPlaces(): array
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM pins;
+            SELECT t.* FROM public.pin_info t
         ');
         $stmt->execute();
 
@@ -25,22 +25,30 @@ class PlacesRepository extends Repository
             $pdo->beginTransaction();
 
             $stmt = $pdo->prepare('
-            INSERT INTO pins (description, coordinates) VALUES (:comment, :coordinates);
+            INSERT INTO pins (description, coordinates, details) VALUES (:comment, :coordinates, :details);
         ');
             $comment = $pin->getComment();
-            $coordinates = $pin->getCoordinates();
+            $details = $pin->getDetails();
+            $coordinates = $pin->formatCoordinatesToJSON();
+
             $stmt->bindParam(':comment', $comment, PDO::PARAM_STR);
             $stmt->bindParam(':coordinates', $coordinates, PDO::PARAM_STR);
+            $stmt->bindParam(':details', $details, PDO::PARAM_STR);
             $stmt->execute();
 
-            $last_entry = pg_last_oid($stmt);
+            $id_pin = $pdo->lastInsertId();
             $stmt = $pdo->prepare('
-            INSERT INTO addresses (id_pin, city) VALUES (:last_entry, :address::text);
+            INSERT INTO addresses (id_pin, country, city, zip, street, house_number) 
+                VALUES (:id_pin, :country, :city, :zip, :street, :house_number);
         ');
 
             $address = $pin->getAddress();
-            $stmt->bindParam(':address', $address, PDO::PARAM_STR);
-            $stmt->bindParam(':last_entry', $last_entry, PDO::PARAM_INT);
+            $stmt->bindParam(':id_pin', $id_pin, PDO::PARAM_INT);
+            $stmt->bindParam(':country', $address['country'], PDO::PARAM_STR);
+            $stmt->bindParam(':city', $address['city'], PDO::PARAM_STR);
+            $stmt->bindParam(':zip', $address['zip-code'], PDO::PARAM_STR);
+            $stmt->bindParam(':street', $address['street'], PDO::PARAM_STR);
+            $stmt->bindParam(':house_number', $address['house_no'], PDO::PARAM_STR);
             $stmt->execute();
 
             $pdo->commit();
