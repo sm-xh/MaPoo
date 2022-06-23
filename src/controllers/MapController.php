@@ -61,7 +61,7 @@ class MapController extends AppController {
             return $this->render('add_pin', ['messages' => ['New pin added!']]);
         }
         catch (PDOException $e){
-            return $this->render('add_pin', ['error' => ['Pin not added!']]);
+            return $this->render('add_pin', ['messages' => ['Pin not added!']]);
         }
     }
 

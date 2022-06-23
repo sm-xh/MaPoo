@@ -44,7 +44,7 @@ class SecurityController extends AppController {
         $cookieRepository->setCookie($user->getEmail());
 
         $url = "http://$_SERVER[HTTP_HOST]";
-        return $this->render('map', ['messages' => ['You\'ve been succesfully registrated!']]);
+        header("Location: ${url}/index");
 
     }
 

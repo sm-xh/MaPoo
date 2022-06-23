@@ -39,10 +39,10 @@ function placeMarkers(places) {
         for (var key in feature.details) {
             if (feature.details.hasOwnProperty(key)) {
                 if(feature.details[key]=="on"){
-                    info_box += "<li>   " +  tick + key + "</li>";
+                    info_box += "<li>" +  tick + key + "</li>";
                 }
                 if(feature.details[key]=="off"){
-                    info_box += "<li>   " + cross + key + "</li>";
+                    info_box += "<li>" + cross + key + "</li>";
                 }
             }
         }

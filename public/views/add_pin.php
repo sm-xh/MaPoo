@@ -1,11 +1,7 @@
 <?php
 require_once __DIR__."/../../src/controllers/SiteContentController.php";
-
-if(!isset($_COOKIE['user'])){
-    $url = "http://$_SERVER[HTTP_HOST]";
-    header("Location: ${url}/index");
-}
-
+require_once __DIR__."/../../src/controllers/PermissionController.php";
+(new PermissionController)->checkIfLoggedIn($_COOKIE['user']);
 ?>
 
 

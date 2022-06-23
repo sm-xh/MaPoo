@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__."/../../src/controllers/SiteContentController.php";
+require_once __DIR__."/../../src/controllers/PermissionController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,16 @@ require_once __DIR__."/../../src/controllers/SiteContentController.php";
     <main>
         <section>
             <div id='map'>
+                  <?php
+                  (new PermissionController)->unauthorizedPopUp();
+                  ?>
             </div>
         </section>
     </main>
+<script>
+    $('.close-btn').click(function(){
+        $('.alert-box').removeClass("show");
+        $('.alert-box').addClass("hide");
+    });
+</script>
 </html>

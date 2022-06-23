@@ -66,10 +66,6 @@ main {
 
 }
 
-.active{
-    border-bottom: 5px solid gray;
-}
-
 .navbar li:hover a{
     text-decoration: underline;
     color: #b0eaff;
