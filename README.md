@@ -10,7 +10,6 @@
 
 ✔️HTML
 
-
 ✔️ POSTGRESQL
 
 ✔️ZŁOŻONOŚĆ BAZY DANYCH
