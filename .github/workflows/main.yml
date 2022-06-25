@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pwd
-        run: pwd
+        run: ls -la
       - name: Run docker compose
         run: docker-compose up -d
       - uses: actions/checkout@v2
