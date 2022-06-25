@@ -24,8 +24,9 @@ class PermissionController extends AppController
 
     public function checkIfIsAdmin($cookie_user): void
     {
-        $mail = $cookie_user['mail'];
-        if(!$this->permissionRepository->isUserAdmin($mail)){
+        $user_mail = json_decode($cookie_user, true);
+        $user_mail= $user_mail['email'];
+        if(!$this->permissionRepository->isUserAdmin($user_mail)){
             $url = "http://$_SERVER[HTTP_HOST]";
             $msg = "unauthorized";
             header("Location: ${url}/index?$msg");
