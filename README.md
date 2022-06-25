@@ -4,35 +4,38 @@ MaPoo is a Web application made with PHP, MapBox and Google Maps API.
 It allows people to share places with free toilets among each others. Main purpose of the app was to make traveling easier.
 
 
-## Table of contents
-* 🎯 [General info](#general-info)
-* 🎯 [Technologies](#technologies)
-* 🎯 [Reqirements](#requirements)
-* 🎯 [Setup](#setup)
+## Table of contents  
+🎯 [General info](#general-info)  
+🎯 [Technologies](#technologies)  
+🎯 [Reqirements](#requirements)  
+🎯 [Setup](#setup)
 
 ## General info
 
-The app consists of two main componenets:
+### The app consists of two main componenets:
 
-🔎🚽 Searching for the toilet: 
+##### 🔎🚽 Searching for the toilet: 
 
-![Screenshot](examples/add_toilet.png)
+![Screenshot](examples/views/add_toilet.png)
 
-➕🚽 Adding new toilet:
+##### ➕🚽 Adding new toilet:
 
-![Screenshot](examples/search_toilets.png)
+![Screenshot](examples/views/search_toilets.png)
 
-Database diagram:
+##### Database diagram (❕ other formats are available [here](examples/diagrams/))
+
+![Screenshot](examples/diagrams/erd_diagram.png)
 
 
 ## 👾 Technologies
 
-* 👉 PHP:7.4.3
-* 👉 JavaScript
-* 👉 HTML
-* 👉 NGINX:1.17.8
-* 👉 Docker
-* 👉 Heroku pipeline
+👉 PHP:7.4.3  
+👉 NGINX:1.17.8  
+👉 PostgreSQL  
+👉 JavaScript  
+👉 HTML  
+👉 Docker   
+👉 Heroku pipeline
 
 ## 🚩 Requirements:
 * [Docker](https://docs.docker.com/engine/install/) installed locally
