@@ -25,21 +25,22 @@ The app consists of two main componenets:
 Database diagram:
 
 
-## Technologies
+## 👾 Technologies
 
-* PHP:7.4.3
-* JavaScript
-* HTML
-* NGINX:1.17.8
-* Docker
-* Heroku pipeline
+*👉 PHP:7.4.3
+*👉 JavaScript
+*👉 HTML
+*👉 NGINX:1.17.8
+*👉 Docker
+*👉 Heroku pipeline
 
-## Requirements:
+## 🚩 Requirements:
 * [Docker](https://docs.docker.com/engine/install/) installed locally
 * own Postgresql database (you can get one for free on [Heroku](heroku.com) )
 * own [Google Maps API](https://developers.google.com/maps) service
+* Credentials for both services needs to be applied to [config.php](config.php) file.
 
-## Setup
+## 🏗️ Setup
 
 If requirements are met, you can run this project using docker compose. Download the repo and run following command:
 
