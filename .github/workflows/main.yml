@@ -15,7 +15,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "mapoo"
           heroku_email: "p.smach99@gmail.com"
-          userdocker: true
+          usedocker: true
           env:
             HD_USERNAME: ${{ secrets.DB_USERNAME }}
             HD_PASSWORD: ${{ secrets.DB_PASSWORD }}
