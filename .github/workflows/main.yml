@@ -17,8 +17,8 @@ jobs:
           heroku_email: "p.smach99@gmail.com"
           userdocker: true
           env:
-            USERNAME: ${{ secrets.DB_USERNAME }}
-            PASSWORD: ${{ secrets.DB_PASSWORD }}
-            HOST: ${{ secrets.DB_HOST }}
-            DATABASE: ${{ secrets.DATABASE }}
-            GGL_API: ${{ secrets.GOOGLE_API }}
+            HD_USERNAME: ${{ secrets.DB_USERNAME }}
+            HD_PASSWORD: ${{ secrets.DB_PASSWORD }}
+            HD_HOST: ${{ secrets.DB_HOST }}
+            HD_DATABASE: ${{ secrets.DATABASE }}
+            HD_GGL_API: ${{ secrets.GOOGLE_API }}
