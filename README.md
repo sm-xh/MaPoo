@@ -27,12 +27,12 @@ Database diagram:
 
 ## 👾 Technologies
 
-*👉 PHP:7.4.3
-*👉 JavaScript
-*👉 HTML
-*👉 NGINX:1.17.8
-*👉 Docker
-*👉 Heroku pipeline
+* 👉 PHP:7.4.3
+* 👉 JavaScript
+* 👉 HTML
+* 👉 NGINX:1.17.8
+* 👉 Docker
+* 👉 Heroku pipeline
 
 ## 🚩 Requirements:
 * [Docker](https://docs.docker.com/engine/install/) installed locally
