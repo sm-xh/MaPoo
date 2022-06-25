@@ -16,12 +16,6 @@ jobs:
           heroku_app_name: "mapoo"
           heroku_email: "p.smach99@gmail.com"
           userdocker: true
-          docker_build_args: |
-            USERNAME
-            PASSWORD
-            HOST
-            DATABASE
-            GGL_API
           env:
             USERNAME: ${{ secrets.DB_USERNAME }}
             PASSWORD: ${{ secrets.DB_PASSWORD }}
