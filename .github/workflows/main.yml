@@ -1,0 +1,30 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "mapoo"
+          heroku_email: "p.smach99@gmail.com"
+          userdocker: true
+          docker_build_args: |
+            USERNAME
+            PASSWORD
+            HOST
+            DATABASE
+            GGL_API
+          env:
+            USERNAME: ${{ secrets.DB_USERNAME }}
+            PASSWORD: ${{ secrets.DB_PASSWORD }}
+            HOST: ${{ secrets.DB_HOST }}
+            DATABASE: ${{ secrets.DATABASE }}
+            GGL_API: ${{ secrets.GOOGLE_API }}
