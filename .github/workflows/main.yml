@@ -19,7 +19,7 @@ jobs:
           api_key: ${{ secrets.HEROKU_API_KEY }}
           app_name: "mapoo"
           docker_compose_file: ""
-          heroku_apps: '[{"imagename":"5656944cb816","appname":"mapoo","apptype":"web"},{"imagename":"6bab445e26b8","appname":"mapoo","apptype":"php"}]' # List of Docker Image name, Heroku app and Heroku app type
+          heroku_apps: '[{"imagename":"nginx","appname":"mapoo","apptype":"web"},{"imagename":"php-fpm","appname":"mapoo","apptype":"php"}]' # List of Docker Image name, Heroku app and Heroku app type
         env:
           HD_USERNAME: ${{ secrets.DB_USERNAME }}
           HD_PASSWORD: ${{ secrets.DB_PASSWORD }}
