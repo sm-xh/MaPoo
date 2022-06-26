@@ -15,8 +15,9 @@ jobs:
         id: heroku
         uses: snithyanantham/docker-compose-multiple-apps-heroku-deploy@v1.0  # use the latest version of the action
         with:
-          heroku_email: "p.smach99@gmail.com"
+          email: "p.smach99@gmail.com"
           api_key: ${{ secrets.HEROKU_API_KEY }}
+          app_name: "mapoo"
           docker_compose_file: '.docker-compose.heroku.yml'
           heroku_apps: '[{"imagename":"mapoo-web-1","appname":"mapoo","apptype":"web"},{"imagename":"mapoo-php-1","appname":"mapoo","apptype":"php"}]' # List of Docker Image name, Heroku app and Heroku app type
         env:
