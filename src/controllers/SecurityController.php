@@ -31,14 +31,14 @@ class SecurityController extends AppController {
         $user = $userRepository->getUser($email);
 
         if (!$user) {
-            return $this->render('login', ['messages' => ['User not found!']]);
+            return $this->render('login', ['messages' => ['<span class="error">User not found!</span>']]);
         }
 
         if ($user->getEmail() !== $email) {
-            return $this->render('login', ['messages' => ['User with this email not exist!']]);
+            return $this->render('login', ['messages' => ['<span class="error">User with this email not exist!</span>']]);
         }
         if (!password_verify($_POST['password'], $user->getPassword())) {
-            return $this->render('login', ['messages' => ['Wrong username or password!']]);
+            return $this->render('login', ['messages' => ['<span class="error">Wrong username or password!</span>']]);
         }
 
         $cookieRepository->setCookie($user->getEmail());
@@ -58,6 +58,10 @@ class SecurityController extends AppController {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $name = $_POST['name'];
+
+        if ($this->userRepository->userExists($email)) {
+            return $this->render('register', ['messages' => ['<span class="error">Sorry, this email is taken.</span>']]);
+        }
 
         $user = new User($email, password_hash($password, PASSWORD_DEFAULT), $name);
 

@@ -66,4 +66,19 @@ class UserRepository extends Repository
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         return $data['id_user'];
     }
+
+    public function userExists($email): bool{
+        $stmt = $this->database->connect()->prepare('
+            SELECT COUNT(email) FROM users WHERE users.email LIKE :email
+        ');
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($data['count']!=0){
+            return true;
+        };
+        return false;
+    }
 }
