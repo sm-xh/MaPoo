@@ -72,11 +72,13 @@ class MapController extends AppController {
         // send http request
         $geocode = file_get_contents($url);
         $json = json_decode($geocode);
+
         $address = array(
             "house_no"=>$json->results[0]->address_components[0]->long_name,
             "street"=>$json->results[1]->address_components[1]->long_name,
             "city"=>$json->results[1]->address_components[3]->long_name,
             "voivodeship"=>$json->results[1]->address_components[5]->long_name,
+            "country"=>$json->results[1]->address_components[6]->long_name,
             "zip-code"=>$json->results[1]->address_components[7]->long_name,
         );
         return $address;

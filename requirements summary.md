@@ -149,6 +149,6 @@ Code uses proper formatting and I tried to make as clean as possible, but I coul
 
 ✔️ BAZA DANYCH ZRZUCONA DO PLIKU .SQL
 
-Available [here](examples/mapoo.db)
+Available [here](examples/mapoo_2022_06_27-dump.sql)
 
 SUMMARY = ~22/24
