@@ -2,6 +2,7 @@ version: '3'
 
 services:
   web:
+    container_name: mapoo_web
     build:
       context: .
       dockerfile: docker/nginx/Dockerfile
@@ -13,6 +14,7 @@ services:
       - php
 
   php:
+    container_name: mapoo_php
     build:
       context: .
       dockerfile: docker/php/Dockerfile
