@@ -1,41 +1,21 @@
-function validateEmail(email){
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
-        return false;
-    }
-}
-
-function validatePassword(pass){
-    if (pass.length<8 || pass.length>=30){
-        return false;
-    }
-
-}
-
-
-function validateName(name){
-    if (name == ""){
-        return false;
-    }
-}
-
 function validateForm() {
-    const emailEl = document.querySelector('#email[input]').textContent;
-    const passwordEl = document.querySelector('#password');
-    const user_nameEl = document.querySelector('#user_name');
+    const emailEl = document.getElementById('email').value;
+    const passwordEl = document.getElementById('password').value;
+    const user_nameEl = document.getElementById('user_name').value;
 
-    if (!validateName(user_nameEl)){
-        console.log(user_nameEl);
+    if (user_nameEl === ""){
         document.querySelector('#mess').innerHTML = "Name must be filled out";
         return false;
     }
-    if (!validatePassword(passwordEl)){
-        document.querySelector('#mess').innerHTML = "Invalid password (must be between 8 and 30 characters";
-        return false;
-    }
-    if (!validateEmail(emailEl)){
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailEl)==false    ){
         document.querySelector('#mess').innerHTML = "Invalid email";
         return false;
     }
+    if (passwordEl.length<8 || passwordEl.length>=30){
+        document.querySelector('#mess').innerHTML = "Invalid password (must be between 8 and 30 characters";
+        return false;
+    }
+
 }
 
 
